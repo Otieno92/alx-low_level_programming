@@ -13,3 +13,5 @@ void print_to_98(int n);
 void print_times_table(int n);
 int _putchar(char);
 int _putcher(char 1, 2);
+int _putcher(char);
+
