@@ -1,12 +1,21 @@
 #include "main.h"
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * print_most_numbers - prints lower case alphabet
+ * Return: void
  */
-int main(void)
+
+void print_most_numbers(void)
 {
-	print_most_numbers();
-	return (0);
+	char i;
+
+	for (i = 48; i < 58; i++)
+	{
+		if (i == 50 || i == 52)
+		{
+			continue;
+		}
+		_putchar(i);
+	}
+	_putchar('\n');
 }
