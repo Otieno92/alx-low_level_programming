@@ -1,23 +1,29 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_array - a function that prints n elements of an array
- * @a: array name
- * @n: is the number of elements OF the array to be printed
- * Return: a and n inputs
+ * wildcmp - Compares two strings
+ * @s1: pointer to string params
+ * @s2: pointer to string params
+ * Return: 0
  */
-void print_array(int *a, int n)
-{
-	int i;
 
-	for (i = 0; i < (n - 1); i++)
+int wildcmp(char *s1, char *s2)
+{
+	if (*s1 == '\0')
 	{
-		printf("%d, ", a[i]);
-	}
-		if (i == (n - 1))
+		if (*s2 != '\0' && *s2 == '*')
 		{
-			printf("%d", a[n - 1]);
+			return (wildcmp(s1, s2 + 1));
 		}
-			printf("\n");
+		return (*s2 == '\0');
+	}
+	if (*s2 == '*')
+	{
+		return (wildcmp(s1 + 1, s2) || wildcmp(s1, s2 + 1));
+	}
+	else if (*s1 == *s2)
+	{
+		return (wildcmp(s1 + 1, s2 + 1));
+	}
+	return (0);
 }
