@@ -1,20 +1,30 @@
 #include "main.h"
 
 /**
- * _islower - Check if the entry is in lower.
- * @c: This is the entry
+ * _strncpy - copies a string
+ * @dest: destination string
+ * @src: source string
+ * @n: number of bytes to copy
  *
- * Return: Always 0.
+ * Return: pointer to the resulting string
  */
-
-int _islower(int c)
+char *_strncpy(char *dest, char *src, int n)
 {
-	if (c >= 'a' && c <= 'z')
+	int i;
+
+	i = 0;
+
+	while (src[i] != '\0' && i < n)
 	{
-		return (1);
+		dest[i] = src[i];
+		i++;
 	}
-	else
+
+	while (i < n)
 	{
-		return (0);
+		dest[i] = '\0';
+		i++;
 	}
+
+	return (dest);
 }
